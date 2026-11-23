@@ -1,0 +1,92 @@
+:root {
+  --verde: #0f766e;
+  --verde-claro: #ccfbf1;
+  --ambar: #b45309;
+  --ambar-claro: #fef3c7;
+  --rojo: #b91c1c;
+  --rojo-claro: #fee2e2;
+  --texto: #1f2937;
+  --fondo: #f3f4f6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+header {
+  background: var(--verde);
+  color: #fff;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+header h1 { margin: 0; font-size: 1.4rem; }
+header p { margin: .25rem 0 0; opacity: .85; }
+
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+}
+.tarjeta h2 { margin-top: 0; font-size: 1.1rem; }
+.tarjeta.aviso { border-left: 6px solid var(--verde); }
+
+.nota { font-size: .9rem; color: #4b5563; }
+.opcion { display: flex; gap: .5rem; align-items: flex-start; font-size: .9rem; margin: .75rem 0; }
+
+.botones { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+
+button {
+  font: inherit;
+  padding: .7rem 1.1rem;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  min-height: 44px;
+}
+button.primario { background: var(--verde); color: #fff; }
+button.secundario { background: #e5e7eb; color: var(--texto); }
+
+select {
+  width: 100%;
+  font: inherit;
+  padding: .6rem;
+  border-radius: 8px;
+  border: 1px solid #9ca3af;
+  margin-top: .25rem;
+}
+
+.estado { margin-top: .75rem; padding: .6rem .8rem; border-radius: 8px; font-size: .95rem; }
+.estado.cargando { background: var(--verde-claro); }
+.estado.error { background: var(--rojo-claro); color: var(--rojo); }
+
+.badge {
+  display: inline-block;
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.badge.alta { background: var(--verde-claro); color: var(--verde); }
+.badge.aproximada { background: var(--ambar-claro); color: var(--ambar); }
+
+dl { display: grid; grid-template-columns: auto 1fr; gap: .35rem .75rem; margin: .75rem 0 0; }
+dt { font-weight: 600; }
+dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+.zona { background: #fff; padding: .8rem 1rem; border-radius: 12px; font-weight: 600; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+
+[hidden] { display: none !important; }

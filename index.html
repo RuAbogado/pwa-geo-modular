@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>Geolocalización Consciente</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <h1>📍 Geolocalización Consciente</h1>
+    <p>Tema 6.3 · PWA con <code>geo-helper.js</code></p>
+  </header>
+
+  <main>
+    <section class="tarjeta">
+      <h2>Reporte técnico</h2>
+      <p>Adjunta tu ubicación al reporte. Tú decides cuándo compartirla.</p>
+      <label class="opcion">
+        <input type="checkbox" id="altaPrecision" checked>
+        Alta precisión (GPS). Desactívala en laptops sin GPS.
+      </label>
+      <div class="botones">
+        <button id="btnAdjuntar" class="primario" type="button">Adjuntar mi ubicación</button>
+        <button id="btnSucursal" class="secundario" type="button">Sucursal más cercana</button>
+      </div>
+      <div id="estado" class="estado" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <!-- Pre-permiso -->
+    <section id="tarjetaPrePermiso" class="tarjeta aviso" hidden>
+      <h2>¿Por qué pedimos tu ubicación?</h2>
+      <p>Necesitamos tu ubicación aproximada para adjuntar las coordenadas al reporte técnico y calcular la sucursal más cercana. No se comparte con terceros ni se guarda sin tu acción.</p>
+      <p class="nota">Después de pulsar “Compartir”, tu navegador mostrará su propio aviso de permiso.</p>
+      <div class="botones">
+        <button id="btnConfirmar" class="primario" type="button">Compartir mi ubicación</button>
+        <button id="btnCancelar" class="secundario" type="button">Ahora no</button>
+      </div>
+    </section>
+
+    <!-- Resultado -->
+    <section id="resultado" class="tarjeta" hidden>
+      <h2>Ubicación obtenida</h2>
+      <span id="badgeCalidad" class="badge"></span>
+      <dl>
+        <dt>Latitud</dt><dd id="valLat"></dd>
+        <dt>Longitud</dt><dd id="valLon"></dd>
+        <dt>Precisión (accuracy)</dt><dd id="valPrecision"></dd>
+        <dt>Hora de lectura</dt><dd id="valHora"></dd>
+      </dl>
+    </section>
+
+    <!-- Plan B -->
+    <section id="tarjetaManual" class="tarjeta" hidden>
+      <h2>Elige tu zona manualmente</h2>
+      <p id="ayudaDenegado" class="nota" hidden></p>
+      <label for="selectZona">Ciudad / zona</label>
+      <select id="selectZona"></select>
+      <div class="botones">
+        <button id="btnZona" class="primario" type="button">Usar esta zona</button>
+      </div>
+    </section>
+
+    <p id="zonaManual" class="zona" hidden></p>
+  </main>
+
+  <script src="./geo-helper.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
